@@ -51,9 +51,23 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-primary-foreground/10 text-center">
+        <div className="mt-12 pt-8 border-t border-primary-foreground/10 text-center space-y-3">
           <p className="text-sm text-primary-foreground/60">
             © {new Date().getFullYear()} {companyInfo.name}. Todos os direitos reservados.
+          </p>
+          <p className="text-xs font-medium text-primary-foreground/60">
+            CNPJ: 00.000.000/0000-00
+          </p>
+          <p className="text-xs text-primary-foreground/60">
+            Desenvolvido por 🔥{" "}
+            <a
+              href="https://ignitedigital.com.br"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-all duration-300 hover:text-olive hover:opacity-100"
+            >
+              Ignite Digital
+            </a>
           </p>
         </div>
       </div>
