@@ -1,7 +1,6 @@
 import { Instagram, Facebook, Mail } from "lucide-react";
 import { companyInfo } from "@/data/siteContent";
-// Descomente quando o logo for adicionado:
-// import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   return (
@@ -10,13 +9,11 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo */}
           <div className="text-center md:text-left">
-            {/* Substitua pelo logo quando disponível:
-            <img src={logo} alt={companyInfo.name} className="h-16 w-auto mb-2" />
-            */}
-            <span className="text-3xl font-serif font-bold">{companyInfo.shortName}</span>
-            <span className="block text-sm text-primary-foreground/70 mt-1">
-              Cortinas & Persianas
-            </span>
+            <img 
+              src={logo} 
+              alt={companyInfo.name} 
+              className="h-14 w-auto brightness-0 invert"
+            />
           </div>
 
           {/* Tagline */}
