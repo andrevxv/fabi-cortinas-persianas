@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { MapPin, Mail, Phone, Send } from "lucide-react";
@@ -6,20 +6,21 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
-
-const products = [
-  "Cortinas",
-  "Persianas",
-  "Toldos",
-  "Cabeceiras",
-  "Aromatização",
-  "Placas em Aço",
-];
+import { contactContent, companyInfo } from "@/data/siteContent";
 
 const Contact = () => {
+  const containerRef = useRef(null);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const { toast } = useToast();
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  const leftY = useTransform(scrollYProgress, [0, 1], [50, -50]);
+  const rightY = useTransform(scrollYProgress, [0, 1], [80, -30]);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -34,7 +35,7 @@ const Contact = () => {
     
     const message = `Olá! Gostaria de solicitar um orçamento.\n\nNome: ${formData.name}\nE-mail: ${formData.email}\nWhatsApp: ${formData.whatsapp}\nJá possui projeto? ${formData.hasProject}\nProdutos de interesse: ${formData.products.join(", ")}`;
     
-    const whatsappUrl = `https://wa.me/5584941417576?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/${companyInfo.phoneClean}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank");
 
     toast({
@@ -53,82 +54,92 @@ const Contact = () => {
   };
 
   return (
-    <section id="contato" className="py-24 lg:py-32 bg-background">
+    <section ref={containerRef} id="contato" className="py-24 lg:py-32 bg-background overflow-hidden">
       <div className="container mx-auto px-4 lg:px-8">
         <div ref={ref} className="grid lg:grid-cols-2 gap-16">
-          {/* Contact Info */}
+          {/* Contact Info with Parallax */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
+            style={{ y: leftY }}
           >
             <span className="inline-block mb-4 text-sm font-medium tracking-wider text-primary uppercase">
-              Contato
+              {contactContent.badge}
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground leading-tight mb-6">
-              Vamos conversar sobre seu{" "}
-              <span className="text-primary italic">projeto?</span>
+              {contactContent.title}{" "}
+              <span className="text-primary italic">{contactContent.titleHighlight}</span>
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              Entre em contato e solicite seu orçamento personalizado. 
-              Estamos prontos para transformar seu ambiente.
+              {contactContent.subtitle}
             </p>
 
             <div className="space-y-6">
-              <div className="flex items-start gap-4">
+              <motion.div 
+                className="flex items-start gap-4"
+                whileHover={{ x: 5 }}
+              >
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                   <MapPin className="w-5 h-5 text-primary" />
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground mb-1">Endereço</h4>
-                  <p className="text-muted-foreground">Nova Parnamirim, RN</p>
+                  <p className="text-muted-foreground">{companyInfo.address}</p>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="flex items-start gap-4">
+              <motion.div 
+                className="flex items-start gap-4"
+                whileHover={{ x: 5 }}
+              >
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                   <Mail className="w-5 h-5 text-primary" />
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground mb-1">E-mail</h4>
                   <a
-                    href="mailto:adm.fabi.aromas@gmail.com"
+                    href={`mailto:${companyInfo.email}`}
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    adm.fabi.aromas@gmail.com
+                    {companyInfo.email}
                   </a>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="flex items-start gap-4">
+              <motion.div 
+                className="flex items-start gap-4"
+                whileHover={{ x: 5 }}
+              >
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                   <Phone className="w-5 h-5 text-primary" />
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground mb-1">Telefone</h4>
                   <a
-                    href="tel:+558441417576"
+                    href={`tel:+55${companyInfo.phoneClean}`}
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    (84) 4141-7576
+                    {companyInfo.phone}
                   </a>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
 
-          {/* Form */}
+          {/* Form with Parallax */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
+            style={{ y: rightY }}
           >
             <form
               onSubmit={handleSubmit}
               className="bg-card p-8 rounded-2xl shadow-soft"
             >
               <h3 className="text-2xl font-serif font-bold text-foreground mb-6">
-                Solicite seu Orçamento
+                {contactContent.formTitle}
               </h3>
 
               <div className="space-y-4">
@@ -215,7 +226,7 @@ const Contact = () => {
                     Produtos de interesse
                   </label>
                   <div className="grid grid-cols-2 gap-3">
-                    {products.map((product) => (
+                    {contactContent.productOptions.map((product) => (
                       <label
                         key={product}
                         className="flex items-center gap-2 cursor-pointer"
