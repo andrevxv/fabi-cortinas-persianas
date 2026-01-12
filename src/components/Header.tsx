@@ -3,8 +3,7 @@ import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { navItems, companyInfo } from "@/data/siteContent";
-// Descomente a linha abaixo quando o logo for adicionado:
-// import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.png";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -44,18 +43,14 @@ const Header = () => {
               e.preventDefault();
               scrollToSection("#hero");
             }}
-            className="flex items-center gap-3"
+            className="flex items-center"
             whileHover={{ scale: 1.02 }}
           >
-            {/* Substitua pelo logo quando disponível:
-            <img src={logo} alt={companyInfo.name} className="h-12 w-auto" />
-            */}
-            <span className="text-2xl font-serif font-bold text-primary">
-              {companyInfo.shortName}
-            </span>
-            <span className="hidden sm:block text-sm font-sans text-muted-foreground">
-              Cortinas & Persianas
-            </span>
+            <img 
+              src={logo} 
+              alt={companyInfo.name} 
+              className={`transition-all duration-300 ${isScrolled ? 'h-10' : 'h-12'}`}
+            />
           </motion.a>
 
           {/* Desktop Navigation */}
