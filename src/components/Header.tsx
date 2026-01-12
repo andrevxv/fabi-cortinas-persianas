@@ -2,14 +2,9 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const navItems = [
-  { label: "Início", href: "#hero" },
-  { label: "Sobre", href: "#sobre" },
-  { label: "Produtos", href: "#produtos" },
-  { label: "Projetos", href: "#projetos" },
-  { label: "Contato", href: "#contato" },
-];
+import { navItems, companyInfo } from "@/data/siteContent";
+// Descomente a linha abaixo quando o logo for adicionado:
+// import logo from "@/assets/logo.png";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -52,8 +47,11 @@ const Header = () => {
             className="flex items-center gap-3"
             whileHover={{ scale: 1.02 }}
           >
+            {/* Substitua pelo logo quando disponível:
+            <img src={logo} alt={companyInfo.name} className="h-12 w-auto" />
+            */}
             <span className="text-2xl font-serif font-bold text-primary">
-              Fabi
+              {companyInfo.shortName}
             </span>
             <span className="hidden sm:block text-sm font-sans text-muted-foreground">
               Cortinas & Persianas

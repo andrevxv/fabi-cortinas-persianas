@@ -1,7 +1,8 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Award, Eye, Heart, Sparkles } from "lucide-react";
+import { aboutContent } from "@/data/siteContent";
 
 const features = [
   {
@@ -27,53 +28,73 @@ const features = [
 ];
 
 const About = () => {
+  const containerRef = useRef(null);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  // Parallax effects
+  const textY = useTransform(scrollYProgress, [0, 1], [50, -50]);
+  const cardsY = useTransform(scrollYProgress, [0, 1], [100, -50]);
+
   return (
-    <section id="sobre" className="py-24 lg:py-32 gradient-cream">
+    <section ref={containerRef} id="sobre" className="py-24 lg:py-32 gradient-cream overflow-hidden">
       <div className="container mx-auto px-4 lg:px-8">
         <div ref={ref} className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Text Content */}
+          {/* Text Content with Parallax */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
+            style={{ y: textY }}
           >
             <span className="inline-block mb-4 text-sm font-medium tracking-wider text-primary uppercase">
-              Sobre Nós
+              {aboutContent.badge}
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground leading-tight mb-6">
-              Onde a Excelência Técnica encontra a{" "}
-              <span className="text-primary italic">Visão Estratégica</span>
+              {aboutContent.title}{" "}
+              <span className="text-primary italic">{aboutContent.titleHighlight}</span>
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              Acreditamos que cada ambiente merece equilíbrio perfeito entre conforto, 
-              beleza e funcionalidade. Somos especialistas em conforto térmico, 
-              proteção solar e controle de luz.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              Nossa missão é <strong className="text-foreground">transformar espaços 
-              em refúgios de aconchego, funcionalidade, identidade e bem-estar</strong>.
-            </p>
-
-            <div className="flex flex-wrap gap-4">
-              <div className="flex items-center gap-2 text-sm text-foreground">
-                <div className="w-2 h-2 rounded-full bg-primary" />
-                <span>Fabiana Barbosa – Visão Estratégica</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-foreground">
-                <div className="w-2 h-2 rounded-full bg-primary" />
-                <span>Eng. Bira Barros – Precisão Técnica</span>
-              </div>
+            
+            <div className="space-y-4">
+              {aboutContent.paragraphs.map((paragraph, index) => (
+                <motion.p
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: 0.1 * index }}
+                  className="text-lg text-muted-foreground leading-relaxed"
+                >
+                  {paragraph}
+                </motion.p>
+              ))}
             </div>
+
+            <motion.div 
+              className="flex flex-wrap gap-4 mt-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              {aboutContent.team.map((member, index) => (
+                <div key={index} className="flex items-center gap-2 text-sm text-foreground">
+                  <div className="w-2 h-2 rounded-full bg-primary" />
+                  <span>{member.name} – {member.role}</span>
+                </div>
+              ))}
+            </motion.div>
           </motion.div>
 
-          {/* Features Grid */}
+          {/* Features Grid with Parallax */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
+            style={{ y: cardsY }}
             className="grid sm:grid-cols-2 gap-6"
           >
             {features.map((feature, index) => (
@@ -82,7 +103,8 @@ const About = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                className="bg-card p-6 rounded-lg shadow-soft hover:shadow-medium transition-shadow duration-300"
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="bg-card p-6 rounded-lg shadow-soft hover:shadow-medium transition-all duration-300"
               >
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                   <feature.icon className="w-6 h-6 text-primary" />
