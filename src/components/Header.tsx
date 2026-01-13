@@ -59,11 +59,17 @@ const Header = () => {
               <motion.button
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
-                className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors relative group"
+                className={`text-sm font-semibold transition-colors relative group ${
+                  isScrolled 
+                    ? "text-foreground/80 hover:text-primary" 
+                    : "text-white hover:text-primary drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]"
+                }`}
                 whileHover={{ y: -2 }}
               >
                 {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
+                  isScrolled ? "bg-primary" : "bg-white"
+                }`} />
               </motion.button>
             ))}
           </nav>
@@ -72,7 +78,11 @@ const Header = () => {
           <div className="hidden lg:block">
             <Button
               onClick={() => scrollToSection("#contato")}
-              className="bg-primary hover:bg-olive-dark text-primary-foreground font-medium px-6"
+              className={`font-medium px-6 transition-all duration-300 ${
+                isScrolled 
+                  ? "bg-primary hover:bg-olive-dark text-primary-foreground" 
+                  : "bg-white/90 hover:bg-white text-charcoal shadow-lg"
+              }`}
             >
               Solicitar Orçamento
             </Button>
