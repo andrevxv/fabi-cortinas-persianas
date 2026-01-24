@@ -80,6 +80,7 @@ export const aboutContent = {
 // Tipo para subproduto com múltiplas fotos
 export interface SubProduct {
   name: string;
+  description?: string; // Descrição opcional do subproduto
   images: string[]; // Array de imagens do subproduto
 }
 
@@ -94,6 +95,14 @@ export interface ProductItem {
   gallery?: string[];
 }
 
+// Tipo para projeto com galeria
+export interface ProjectItem {
+  image: string;
+  title: string;
+  location: string;
+  gallery?: string[]; // Galeria adicional de fotos do projeto
+}
+
 export const productsContent = {
   badge: "Nossos Produtos",
   title: "Soluções",
@@ -104,12 +113,12 @@ export const productsContent = {
       description: "Tecido, painel e rolô. Elegância e funcionalidade para cada ambiente.",
       image: cortinasImg,
       subProducts: [
-        { name: "Rolo", images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"] },
-        { name: "Romana", images: ["/placeholder.svg", "/placeholder.svg"] },
-        { name: "Painel", images: ["/placeholder.svg", "/placeholder.svg"] },
-        { name: "Elegance", images: ["/placeholder.svg", "/placeholder.svg"] },
-        { name: "Nuette", images: ["/placeholder.svg", "/placeholder.svg"] },
-        { name: "Plissada", images: ["/placeholder.svg", "/placeholder.svg"] },
+        { name: "Rolo", description: "Cortinas de rolo com design moderno e funcional.", images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"] },
+        { name: "Romana", description: "Elegância clássica com dobras suaves e sofisticadas.", images: ["/placeholder.svg", "/placeholder.svg"] },
+        { name: "Painel", description: "Ideal para ambientes amplos com estilo contemporâneo.", images: ["/placeholder.svg", "/placeholder.svg"] },
+        { name: "Elegance", description: "Sofisticação e leveza para ambientes refinados.", images: ["/placeholder.svg", "/placeholder.svg"] },
+        { name: "Nuette", description: "Controle de luz com isolamento térmico e acústico.", images: ["/placeholder.svg", "/placeholder.svg"] },
+        { name: "Plissada", description: "Versatilidade e charme em dobras delicadas.", images: ["/placeholder.svg", "/placeholder.svg"] },
       ],
     },
     {
@@ -117,8 +126,8 @@ export const productsContent = {
       description: "Proteção solar externa com design sofisticado.",
       image: toldosImg,
       subProducts: [
-        { name: "M1 Premium (Articulado)", images: ["/placeholder.svg", "/placeholder.svg"] },
-        { name: "Sax 955/950 (Toldo Vertical)", images: ["/placeholder.svg", "/placeholder.svg"] },
+        { name: "M1 Premium (Articulado)", description: "Toldo articulado premium com alta resistência e design elegante.", images: ["/placeholder.svg", "/placeholder.svg"] },
+        { name: "Sax 955/950 (Toldo Vertical)", description: "Proteção solar vertical ideal para varandas e áreas externas.", images: ["/placeholder.svg", "/placeholder.svg"] },
       ],
     },
     {
@@ -126,8 +135,8 @@ export const productsContent = {
       description: "Vertical ou horizontal. Controle preciso de luz e privacidade.",
       image: persianasImg,
       subProducts: [
-        { name: "Verticais", images: ["/placeholder.svg", "/placeholder.svg"] },
-        { name: "Horizontais", images: ["/placeholder.svg", "/placeholder.svg"] },
+        { name: "Verticais", description: "Persianas verticais para grandes janelas e portas.", images: ["/placeholder.svg", "/placeholder.svg"] },
+        { name: "Horizontais", description: "Controle preciso de luz com lâminas horizontais.", images: ["/placeholder.svg", "/placeholder.svg"] },
       ],
     },
     {
@@ -199,18 +208,21 @@ export const projectsContent = {
       image: projeto1,
       title: "Sala de Estar Clássica",
       location: "Nova Parnamirim, RN",
+      gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
     },
     {
       image: projeto2,
       title: "Sala de Jantar Contemporânea",
       location: "Natal, RN",
+      gallery: ["/placeholder.svg", "/placeholder.svg"],
     },
     {
       image: projeto3,
       title: "Suíte Master Elegante",
       location: "Ponta Negra, RN",
+      gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
     },
-  ],
+  ] as ProjectItem[],
 };
 
 // ============================================

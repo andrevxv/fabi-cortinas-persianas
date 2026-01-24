@@ -6,6 +6,16 @@ import { aboutContent } from "@/data/siteContent";
 
 const features = [
   {
+    icon: Heart,
+    title: "Conforto & Bem-estar",
+    description: "Transformamos espaços em refúgios de aconchego e funcionalidade.",
+  },
+  {
+    icon: Sparkles,
+    title: "Identidade & Estilo",
+    description: "Cada ambiente reflete a personalidade única de nossos clientes.",
+  },
+  {
     icon: Eye,
     title: "Visão Estratégica",
     description: "Projetos pensados para unir estética, funcionalidade e propósito.",
