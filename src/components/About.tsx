@@ -8,22 +8,12 @@ const features = [
   {
     icon: Eye,
     title: "Visão Estratégica",
-    description: "Fabiana Barbosa traz uma abordagem humanizada e estratégica para cada projeto.",
+    description: "Projetos pensados para unir estética, funcionalidade e propósito.",
   },
   {
     icon: Award,
     title: "Precisão Técnica",
-    description: "Engenheiro Bira Barros garante excelência e precisão em cada instalação.",
-  },
-  {
-    icon: Heart,
-    title: "Conforto & Bem-estar",
-    description: "Transformamos espaços em refúgios de aconchego e funcionalidade.",
-  },
-  {
-    icon: Sparkles,
-    title: "Identidade & Estilo",
-    description: "Cada ambiente reflete a personalidade única de nossos clientes.",
+    description: "Execução precisa, materiais de qualidade e acabamento impecável.",
   },
 ];
 
