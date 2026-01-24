@@ -109,52 +109,51 @@ const Projects = () => {
 
       {/* Project Gallery Modal */}
       <Dialog open={modalOpen} onOpenChange={setModalOpen}>
-        <DialogContent className="sm:max-w-3xl max-h-[90vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle className="font-serif text-2xl">
+        <DialogContent className="max-w-[95vw] max-h-[95vh] w-auto h-auto p-2 sm:p-4 flex flex-col items-center justify-center bg-background/95 backdrop-blur-sm border-none">
+          <DialogHeader className="w-full text-center pb-2">
+            <DialogTitle className="font-serif text-xl sm:text-2xl">
               {selectedProject?.title}
             </DialogTitle>
             <p className="text-sm text-muted-foreground">{selectedProject?.location}</p>
           </DialogHeader>
 
           {selectedProject && (
-            <div className="space-y-6 mt-4">
-              {/* Main project image */}
-              <div className="rounded-lg overflow-hidden">
-                <img
-                  src={selectedProject.image}
-                  alt={selectedProject.title}
-                  className="w-full h-64 object-cover"
-                />
-              </div>
-
-              {/* Gallery carousel */}
-              {selectedProject.gallery && selectedProject.gallery.length > 0 && (
-                <div className="space-y-4">
-                  <h4 className="font-semibold text-foreground">Mais fotos do projeto:</h4>
-                  <Carousel className="w-full">
-                    <CarouselContent>
-                      {selectedProject.gallery.map((img, idx) => (
-                        <CarouselItem key={idx} className="md:basis-1/2">
-                          <div className="aspect-video rounded-lg overflow-hidden bg-muted">
-                            <img
-                              src={img}
-                              alt={`${selectedProject.title} - Foto ${idx + 1}`}
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                        </CarouselItem>
-                      ))}
-                    </CarouselContent>
-                    <CarouselPrevious className="left-2" />
-                    <CarouselNext className="right-2" />
-                  </Carousel>
-                  <p className="text-xs text-muted-foreground text-center">
-                    {selectedProject.gallery.length} {selectedProject.gallery.length === 1 ? 'foto adicional' : 'fotos adicionais'}
-                  </p>
-                </div>
-              )}
+            <div className="flex-1 w-full flex items-center justify-center overflow-hidden">
+              <Carousel className="w-full max-w-[90vw] max-h-[80vh]">
+                <CarouselContent>
+                  {/* Main project image */}
+                  <CarouselItem className="flex items-center justify-center">
+                    <div className="flex items-center justify-center max-h-[75vh]">
+                      <img
+                        src={selectedProject.image}
+                        alt={selectedProject.title}
+                        className="max-w-full max-h-[75vh] w-auto h-auto object-contain rounded-lg"
+                      />
+                    </div>
+                  </CarouselItem>
+                  {/* Gallery images */}
+                  {selectedProject.gallery?.map((img, idx) => (
+                    <CarouselItem key={idx} className="flex items-center justify-center">
+                      <div className="flex items-center justify-center max-h-[75vh]">
+                        <img
+                          src={img}
+                          alt={`${selectedProject.title} - Foto ${idx + 1}`}
+                          className="max-w-full max-h-[75vh] w-auto h-auto object-contain rounded-lg"
+                        />
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="left-2 sm:left-4" />
+                <CarouselNext className="right-2 sm:right-4" />
+              </Carousel>
             </div>
+          )}
+          
+          {selectedProject?.gallery && selectedProject.gallery.length > 0 && (
+            <p className="text-xs text-muted-foreground text-center pt-2">
+              {selectedProject.gallery.length + 1} fotos • Arraste ou use as setas para navegar
+            </p>
           )}
         </DialogContent>
       </Dialog>
