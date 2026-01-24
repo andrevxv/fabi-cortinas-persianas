@@ -30,7 +30,7 @@ const Motorization = () => {
     <section ref={containerRef} className="py-24 lg:py-32 bg-secondary/50 overflow-hidden">
       <div className="container mx-auto px-4 lg:px-8">
         <div ref={ref} className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Image with Parallax */}
+          {/* Image or Video with Parallax */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
@@ -39,12 +39,36 @@ const Motorization = () => {
             className="relative order-2 lg:order-1"
           >
             <div className="relative rounded-2xl overflow-hidden shadow-elegant">
-              <img
-                src={motorizationContent.image}
-                alt="Cortinas motorizadas inteligentes"
-                className="w-full h-auto"
-              />
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent" />
+              {motorizationContent.mediaType === "video" ? (
+                // Suporta YouTube embed ou arquivo de vídeo local
+                motorizationContent.media.includes("youtube") || motorizationContent.media.includes("youtu.be") ? (
+                  <iframe
+                    src={motorizationContent.media}
+                    title="Vídeo de motorização"
+                    className="w-full aspect-video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                ) : (
+                  <video
+                    src={motorizationContent.media}
+                    controls
+                    className="w-full h-auto"
+                    poster={motorizationContent.media}
+                  >
+                    Seu navegador não suporta vídeos.
+                  </video>
+                )
+              ) : (
+                <img
+                  src={motorizationContent.media}
+                  alt="Cortinas motorizadas inteligentes"
+                  className="w-full h-auto"
+                />
+              )}
+              {motorizationContent.mediaType !== "video" && (
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent" />
+              )}
             </div>
             {/* Floating Badge */}
             <motion.div

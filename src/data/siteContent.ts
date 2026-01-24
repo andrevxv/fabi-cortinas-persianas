@@ -6,7 +6,6 @@
 import cortinasImg from "@/assets/cortinas.jpg";
 import persianasImg from "@/assets/persianas.jpg";
 import toldosImg from "@/assets/toldos.jpg";
-import cabeceirasImg from "@/assets/cabeceiras.jpg";
 import aromasImg from "@/assets/aromas.jpg";
 import placasImg from "@/assets/placas.jpg";
 import motorizedImg from "@/assets/motorized.jpg";
@@ -77,6 +76,24 @@ export const aboutContent = {
 // ============================================
 // SEÇÃO PRODUTOS
 // ============================================
+
+// Tipo para subproduto com múltiplas fotos
+export interface SubProduct {
+  name: string;
+  images: string[]; // Array de imagens do subproduto
+}
+
+// Tipo para produto principal
+export interface ProductItem {
+  title: string;
+  description: string;
+  image: string;
+  // Subprodutos (para Cortinas, Toldos, Persianas)
+  subProducts?: SubProduct[];
+  // Galeria de fotos adicionais (para Aromatização, Placas em Aço)
+  gallery?: string[];
+}
+
 export const productsContent = {
   badge: "Nossos Produtos",
   title: "Soluções",
@@ -86,33 +103,46 @@ export const productsContent = {
       title: "Cortinas",
       description: "Tecido, painel e rolô. Elegância e funcionalidade para cada ambiente.",
       image: cortinasImg,
-    },
-    {
-      title: "Persianas",
-      description: "Vertical ou horizontal. Controle preciso de luz e privacidade.",
-      image: persianasImg,
+      subProducts: [
+        { name: "Rolo", images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"] },
+        { name: "Romana", images: ["/placeholder.svg", "/placeholder.svg"] },
+        { name: "Painel", images: ["/placeholder.svg", "/placeholder.svg"] },
+        { name: "Elegance", images: ["/placeholder.svg", "/placeholder.svg"] },
+        { name: "Nuette", images: ["/placeholder.svg", "/placeholder.svg"] },
+        { name: "Plissada", images: ["/placeholder.svg", "/placeholder.svg"] },
+      ],
     },
     {
       title: "Toldos",
       description: "Proteção solar externa com design sofisticado.",
       image: toldosImg,
+      subProducts: [
+        { name: "M1 Premium (Articulado)", images: ["/placeholder.svg", "/placeholder.svg"] },
+        { name: "Sax 955/950 (Toldo Vertical)", images: ["/placeholder.svg", "/placeholder.svg"] },
+      ],
     },
     {
-      title: "Cabeceiras Estofadas",
-      description: "Conforto e design personalizado para seu quarto.",
-      image: cabeceirasImg,
+      title: "Persianas",
+      description: "Vertical ou horizontal. Controle preciso de luz e privacidade.",
+      image: persianasImg,
+      subProducts: [
+        { name: "Verticais", images: ["/placeholder.svg", "/placeholder.svg"] },
+        { name: "Horizontais", images: ["/placeholder.svg", "/placeholder.svg"] },
+      ],
     },
     {
       title: "Aromatização",
       description: "Fragrâncias exclusivas para ambientes únicos.",
       image: aromasImg,
+      gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
     },
     {
       title: "Placas em Aço",
       description: "Sinalização personalizada com acabamento premium.",
       image: placasImg,
+      gallery: ["/placeholder.svg", "/placeholder.svg"],
     },
-  ],
+  ] as ProductItem[],
 };
 
 // ============================================
@@ -123,7 +153,11 @@ export const motorizationContent = {
   title: "Motorização Inteligente:",
   titleHighlight: "Comodidade ao Seu Alcance",
   description: "O futuro do conforto chegou. Controle suas cortinas e persianas por voz ou smartphone, integrando perfeitamente à automação residencial do seu lar.",
-  image: motorizedImg,
+  // Pode ser imagem ou vídeo (para vídeo, use URL do YouTube ou arquivo .mp4)
+  media: motorizedImg,
+  mediaType: "image" as "image" | "video", // Altere para "video" quando quiser usar vídeo
+  // Se mediaType = "video", use URL do vídeo aqui (YouTube embed ou arquivo .mp4)
+  // Exemplo: media: "https://www.youtube.com/embed/VIDEO_ID" ou "/video.mp4"
   floatingBadge: {
     title: "Smart",
     subtitle: "Home Ready",
@@ -191,8 +225,8 @@ export const instagramContent = {
     { image: cortinasImg, alt: "Post Instagram 1" },
     { image: persianasImg, alt: "Post Instagram 2" },
     { image: toldosImg, alt: "Post Instagram 3" },
-    { image: cabeceirasImg, alt: "Post Instagram 4" },
-    { image: aromasImg, alt: "Post Instagram 5" },
+    { image: aromasImg, alt: "Post Instagram 4" },
+    { image: placasImg, alt: "Post Instagram 5" },
     { image: projeto2, alt: "Post Instagram 6" },
   ],
 };
@@ -210,7 +244,6 @@ export const contactContent = {
     "Cortinas",
     "Persianas",
     "Toldos",
-    "Cabeceiras",
     "Aromatização",
     "Placas em Aço",
   ],
