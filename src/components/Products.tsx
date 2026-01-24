@@ -222,11 +222,11 @@ const Products = () => {
                 <CarouselContent>
                   {selectedSubProduct.images.map((img, idx) => (
                     <CarouselItem key={idx}>
-                      <div className="aspect-video rounded-lg overflow-hidden bg-muted">
+                      <div className="flex items-center justify-center min-h-[60vh]">
                         <img
                           src={img}
                           alt={`${selectedSubProduct.name} - Foto ${idx + 1}`}
-                          className="w-full h-full object-cover"
+                          className="max-w-full max-h-[65vh] w-auto h-auto object-contain rounded-lg"
                         />
                       </div>
                     </CarouselItem>
