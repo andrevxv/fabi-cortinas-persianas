@@ -169,7 +169,12 @@ const Products = () => {
                         <span className="font-medium text-sm text-foreground group-hover:text-primary transition-colors">
                           {sub.name}
                         </span>
-                        <span className="block text-xs text-muted-foreground mt-1">
+                        {sub.description && (
+                          <span className="block text-xs text-muted-foreground mt-1 line-clamp-2">
+                            {sub.description}
+                          </span>
+                        )}
+                        <span className="block text-xs text-muted-foreground/70 mt-1">
                           {sub.images.length} {sub.images.length === 1 ? 'foto' : 'fotos'}
                         </span>
                       </motion.button>
@@ -210,6 +215,9 @@ const Products = () => {
           {/* SubProduct Gallery View */}
           {selectedSubProduct && (
             <div className="space-y-6">
+              {selectedSubProduct.description && (
+                <p className="text-muted-foreground">{selectedSubProduct.description}</p>
+              )}
               <Carousel className="w-full">
                 <CarouselContent>
                   {selectedSubProduct.images.map((img, idx) => (
