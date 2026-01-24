@@ -139,6 +139,7 @@ export const productsContent = {
         { name: "Elegance", description: "Sofisticação e leveza para ambientes refinados.", images: [placeholder, placeholder] },
         { name: "Nuette", description: "Controle de luz com isolamento térmico e acústico.", images: [placeholder, placeholder] },
         { name: "Plissada", description: "Versatilidade e charme em dobras delicadas.", images: [placeholder, placeholder] },
+        { name: "Celular", description: "Excelente isolamento térmico e acústico com design diferenciado.", images: [cortinaCelular, placeholder] },
       ],
     },
     {

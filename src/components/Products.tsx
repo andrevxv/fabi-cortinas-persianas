@@ -61,8 +61,10 @@ const Products = () => {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {productsContent.items.map((product, index) => {
+          {/* Layout criativo: Cortinas em destaque + grid para os demais */}
+          <div className="space-y-8">
+            {/* Cortinas - Card em destaque ocupando linha inteira */}
+            {productsContent.items.slice(0, 1).map((product) => {
               const cardRef = useRef(null);
               const { scrollYProgress: cardProgress } = useScroll({
                 target: cardRef,
@@ -76,40 +78,95 @@ const Products = () => {
                   ref={cardRef}
                   key={product.title}
                   style={{ y: cardY, opacity: cardOpacity }}
-                  whileHover={{ scale: 1.03 }}
+                  whileHover={{ scale: 1.01 }}
                   onClick={() => handleProductClick(product)}
-                  className="group relative overflow-hidden rounded-lg bg-card shadow-soft hover:shadow-elegant transition-all duration-500 cursor-pointer"
+                  className="group relative overflow-hidden rounded-2xl bg-card shadow-elegant hover:shadow-2xl transition-all duration-500 cursor-pointer"
                 >
-                  <div className="aspect-square overflow-hidden">
+                  <div className="relative h-[300px] md:h-[400px] overflow-hidden">
                     <motion.img
                       src={product.image}
                       alt={product.title}
                       className="w-full h-full object-cover"
-                      whileHover={{ scale: 1.1 }}
+                      whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.7 }}
                     />
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                    <h3 className="text-xl font-serif font-bold text-primary-foreground mb-2">
-                      {product.title}
-                    </h3>
-                    <p className="text-sm text-primary-foreground/80">
-                      {product.description}
-                    </p>
-                    <span className="inline-block mt-3 text-xs font-medium text-primary-foreground/60 uppercase tracking-wider">
-                      Clique para ver mais →
-                    </span>
-                  </div>
-                  {/* Always visible title */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-charcoal/80 to-transparent group-hover:opacity-0 transition-opacity duration-500">
-                    <h3 className="text-xl font-serif font-bold text-primary-foreground">
-                      {product.title}
-                    </h3>
+                    {/* Overlay gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-charcoal/80 via-charcoal/40 to-transparent" />
+                    
+                    {/* Content overlay */}
+                    <div className="absolute inset-0 flex items-center">
+                      <div className="p-8 md:p-12 max-w-xl">
+                        <span className="inline-block mb-3 px-3 py-1 bg-primary/20 backdrop-blur-sm rounded-full text-xs font-medium text-primary-foreground uppercase tracking-wider">
+                          Produto em Destaque
+                        </span>
+                        <h3 className="text-3xl md:text-4xl font-serif font-bold text-primary-foreground mb-3">
+                          {product.title}
+                        </h3>
+                        <p className="text-primary-foreground/80 mb-4 max-w-md">
+                          {product.description}
+                        </p>
+                        <span className="inline-flex items-center gap-2 text-sm font-medium text-primary group-hover:text-primary-foreground transition-colors">
+                          Explorar variedades
+                          <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 </motion.div>
               );
             })}
+
+            {/* Grid para os demais produtos (2x2) */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {productsContent.items.slice(1).map((product, index) => {
+                const cardRef = useRef(null);
+                const { scrollYProgress: cardProgress } = useScroll({
+                  target: cardRef,
+                  offset: ["start end", "center center"],
+                });
+                const cardY = useTransform(cardProgress, [0, 1], [50, 0]);
+                const cardOpacity = useTransform(cardProgress, [0, 0.5], [0, 1]);
+
+                return (
+                  <motion.div
+                    ref={cardRef}
+                    key={product.title}
+                    style={{ y: cardY, opacity: cardOpacity }}
+                    whileHover={{ scale: 1.03 }}
+                    onClick={() => handleProductClick(product)}
+                    className="group relative overflow-hidden rounded-xl bg-card shadow-soft hover:shadow-elegant transition-all duration-500 cursor-pointer"
+                  >
+                    <div className="aspect-[4/5] overflow-hidden">
+                      <motion.img
+                        src={product.image}
+                        alt={product.title}
+                        className="w-full h-full object-cover"
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.7 }}
+                      />
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                      <h3 className="text-lg font-serif font-bold text-primary-foreground mb-1">
+                        {product.title}
+                      </h3>
+                      <p className="text-xs text-primary-foreground/80 line-clamp-2">
+                        {product.description}
+                      </p>
+                      <span className="inline-block mt-2 text-xs font-medium text-primary-foreground/60 uppercase tracking-wider">
+                        Ver mais →
+                      </span>
+                    </div>
+                    {/* Always visible title */}
+                    <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-charcoal/80 to-transparent group-hover:opacity-0 transition-opacity duration-500">
+                      <h3 className="text-lg font-serif font-bold text-primary-foreground">
+                        {product.title}
+                      </h3>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
