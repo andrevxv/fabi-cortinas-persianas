@@ -113,7 +113,7 @@ export const productsContent = {
       description: "Tecido, painel e rolô. Elegância e funcionalidade para cada ambiente.",
       image: cortinasImg,
       subProducts: [
-        { name: "Rolo", description: "Cortinas de rolo com design moderno e funcional.", images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"] },
+        { name: "Rolo", description: "Cortinas de rolo com design moderno e funcional.", images: ["https://drive.google.com/file/d/127fyAD2BPtNCWDX0F3pvy-C9_ldXn1CC/preview", "/placeholder.svg", "/placeholder.svg"] },
         { name: "Romana", description: "Elegância clássica com dobras suaves e sofisticadas.", images: ["/placeholder.svg", "/placeholder.svg"] },
         { name: "Painel", description: "Ideal para ambientes amplos com estilo contemporâneo.", images: ["/placeholder.svg", "/placeholder.svg"] },
         { name: "Elegance", description: "Sofisticação e leveza para ambientes refinados.", images: ["/placeholder.svg", "/placeholder.svg"] },
@@ -208,7 +208,7 @@ export const projectsContent = {
       image: projeto1,
       title: "Sala de Estar Clássica",
       location: "Nova Parnamirim, RN",
-      gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+      gallery: ["https://drive.google.com/file/d/127fyAD2BPtNCWDX0F3pvy-C9_ldXn1CC/preview", "/placeholder.svg", "/placeholder.svg"],
     },
     {
       image: projeto2,
