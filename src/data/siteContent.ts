@@ -113,7 +113,7 @@ export const productsContent = {
       description: "Tecido, painel e rolô. Elegância e funcionalidade para cada ambiente.",
       image: cortinasImg,
       subProducts: [
-        { name: "Rolo", description: "Cortinas de rolo com design moderno e funcional.", images: ["/assets/cortina_celular.jpg", "/placeholder.svg", "/placeholder.svg"] },
+        { name: "Rolo", description: "Cortinas de rolo com design moderno e funcional.", images: ["/assets/cortina_celular.jpg", "@/assets/cortina_celular.jpg", "assets/cortina_celular.jpg"] },
         { name: "Romana", description: "Elegância clássica com dobras suaves e sofisticadas.", images: ["/placeholder.svg", "/placeholder.svg"] },
         { name: "Painel", description: "Ideal para ambientes amplos com estilo contemporâneo.", images: ["/placeholder.svg", "/placeholder.svg"] },
         { name: "Elegance", description: "Sofisticação e leveza para ambientes refinados.", images: ["/placeholder.svg", "/placeholder.svg"] },
