@@ -3,6 +3,14 @@
 // Edite este arquivo para alterar textos, imagens e informações do site
 // ============================================
 
+// ============================================
+// COMO ADICIONAR IMAGENS:
+// 1. Coloque a imagem na pasta src/assets/produtos/
+// 2. Importe aqui usando: import nomeVariavel from "@/assets/produtos/nome-arquivo.jpg";
+// 3. Use a variável no array de images: [nomeVariavel, outraImagem]
+// ============================================
+
+// Imagens principais
 import cortinasImg from "@/assets/cortinas.jpg";
 import persianasImg from "@/assets/persianas.jpg";
 import toldosImg from "@/assets/toldos.jpg";
@@ -13,6 +21,17 @@ import projeto1 from "@/assets/projeto1.jpg";
 import projeto2 from "@/assets/projeto2.jpg";
 import projeto3 from "@/assets/projeto3.jpg";
 import heroBg from "@/assets/hero-bg.jpg";
+
+// ============================================
+// IMAGENS DOS SUBPRODUTOS
+// Adicione seus imports aqui. Exemplo:
+// import cortinaRolo1 from "@/assets/produtos/cortina-rolo-1.jpg";
+// import cortinaRolo2 from "@/assets/produtos/cortina-rolo-2.jpg";
+// ============================================
+import cortinaCelular from "@/assets/produtos/cortina_celular.jpg";
+
+// Placeholder para imagens ainda não adicionadas
+const placeholder = "/placeholder.svg";
 
 // ============================================
 // INFORMAÇÕES DA EMPRESA
@@ -113,12 +132,13 @@ export const productsContent = {
       description: "Tecido, painel e rolô. Elegância e funcionalidade para cada ambiente.",
       image: cortinasImg,
       subProducts: [
-        { name: "Rolo", description: "Cortinas de rolo com design moderno e funcional.", images: ["/assets/cortina_celular.jpg", "@/assets/cortina_celular.jpg", "assets/cortina_celular.jpg"] },
-        { name: "Romana", description: "Elegância clássica com dobras suaves e sofisticadas.", images: ["/placeholder.svg", "/placeholder.svg"] },
-        { name: "Painel", description: "Ideal para ambientes amplos com estilo contemporâneo.", images: ["/placeholder.svg", "/placeholder.svg"] },
-        { name: "Elegance", description: "Sofisticação e leveza para ambientes refinados.", images: ["/placeholder.svg", "/placeholder.svg"] },
-        { name: "Nuette", description: "Controle de luz com isolamento térmico e acústico.", images: ["/placeholder.svg", "/placeholder.svg"] },
-        { name: "Plissada", description: "Versatilidade e charme em dobras delicadas.", images: ["/placeholder.svg", "/placeholder.svg"] },
+        // Para adicionar fotos: importe a imagem no topo do arquivo e adicione aqui
+        { name: "Rolo", description: "Cortinas de rolo com design moderno e funcional.", images: [cortinaCelular, placeholder, placeholder] },
+        { name: "Romana", description: "Elegância clássica com dobras suaves e sofisticadas.", images: [placeholder, placeholder] },
+        { name: "Painel", description: "Ideal para ambientes amplos com estilo contemporâneo.", images: [placeholder, placeholder] },
+        { name: "Elegance", description: "Sofisticação e leveza para ambientes refinados.", images: [placeholder, placeholder] },
+        { name: "Nuette", description: "Controle de luz com isolamento térmico e acústico.", images: [placeholder, placeholder] },
+        { name: "Plissada", description: "Versatilidade e charme em dobras delicadas.", images: [placeholder, placeholder] },
       ],
     },
     {
@@ -126,8 +146,8 @@ export const productsContent = {
       description: "Proteção solar externa com design sofisticado.",
       image: toldosImg,
       subProducts: [
-        { name: "M1 Premium (Articulado)", description: "Toldo articulado premium com alta resistência e design elegante.", images: ["/placeholder.svg", "/placeholder.svg"] },
-        { name: "Sax 955/950 (Toldo Vertical)", description: "Proteção solar vertical ideal para varandas e áreas externas.", images: ["/placeholder.svg", "/placeholder.svg"] },
+        { name: "M1 Premium (Articulado)", description: "Toldo articulado premium com alta resistência e design elegante.", images: [placeholder, placeholder] },
+        { name: "Sax 955/950 (Toldo Vertical)", description: "Proteção solar vertical ideal para varandas e áreas externas.", images: [placeholder, placeholder] },
       ],
     },
     {
@@ -135,8 +155,8 @@ export const productsContent = {
       description: "Vertical ou horizontal. Controle preciso de luz e privacidade.",
       image: persianasImg,
       subProducts: [
-        { name: "Verticais", description: "Persianas verticais para grandes janelas e portas.", images: ["/placeholder.svg", "/placeholder.svg"] },
-        { name: "Horizontais", description: "Controle preciso de luz com lâminas horizontais.", images: ["/placeholder.svg", "/placeholder.svg"] },
+        { name: "Verticais", description: "Persianas verticais para grandes janelas e portas.", images: [placeholder, placeholder] },
+        { name: "Horizontais", description: "Controle preciso de luz com lâminas horizontais.", images: [placeholder, placeholder] },
       ],
     },
     {
