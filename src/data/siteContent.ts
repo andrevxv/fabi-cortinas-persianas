@@ -25,7 +25,7 @@ import cortinaPainel3 from "@/assets/produtos/painel3.jpg";
 import cortinaPlissada1 from "@/assets/produtos/plissada1.jpg";
 import cortinaPlissada2 from "@/assets/produtos/plissada2.jpg";
 import cortinaElegance1 from "@/assets/produtos/elegance1.jpg";
-import cortinaElegance2 from "@/assets/produtos/elegance2.jpg";
+import cortinaElegance2 from "@/assets/produtos/elegqnce2.jpg";
 import cortinaElegance3 from "@/assets/produtos/elegance3.jpg";
 import cortinaNuette1 from "@/assets/produtos/nuette1.jpeg";
 import cortinaNuette2 from "@/assets/produtos/nuette2.png";
