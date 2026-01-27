@@ -12,6 +12,10 @@
 
 // Imagens principais
 import cortinasImg from "@/assets/cortinas.jpg";
+import cortinaRolo1 from "@/assets/produtos/rolo1.jpg";
+import cortinaRolo2 from "@/assets/produtos/rolo2.jpg";
+import cortinaRolo3 from "@/assets/produtos/rolo3.jpg";
+import cortinaRolo4 from "@/assets/produtos/rolo4.jpg";
 import persianasImg from "@/assets/persianas.jpg";
 import toldosImg from "@/assets/toldos.jpg";
 import aromasImg from "@/assets/aromas.jpg";
@@ -133,7 +137,7 @@ export const productsContent = {
       image: cortinasImg,
       subProducts: [
         // Para adicionar fotos: importe a imagem no topo do arquivo e adicione aqui
-        { name: "Rolo", description: "Cortinas de rolo com design moderno e funcional.", images: [cortinaCelular, placeholder, placeholder] },
+        { name: "Rolo", description: "Cortinas de rolo com design moderno e funcional.", images: [cortinaRolo1, cortinaRolo2, cortinaRolo3, cortinaRolo4] },
         { name: "Romana", description: "Elegância clássica com dobras suaves e sofisticadas.", images: [placeholder, placeholder] },
         { name: "Painel", description: "Ideal para ambientes amplos com estilo contemporâneo.", images: [placeholder, placeholder] },
         { name: "Elegance", description: "Sofisticação e leveza para ambientes refinados.", images: [placeholder, placeholder] },
