@@ -16,7 +16,27 @@ import cortinaRolo1 from "@/assets/produtos/rolo1.jpg";
 import cortinaRolo2 from "@/assets/produtos/rolo2.jpg";
 import cortinaRolo3 from "@/assets/produtos/rolo3.jpg";
 import cortinaRolo4 from "@/assets/produtos/rolo4.jpg";
+import cortinaRomana1 from "@/assets/produtos/romana1.jpg"
+import cortinaRomana2 from "@/assets/produtos/romana2.jpg"
+import cortinaRomana3 from "@/assets/produtos/romana3.jpg"
+import cortinaPainel1 from "@/assets/produtos/painal1.jpg"
+import cortinaPainel2 from "@/assets/produtos/painal2.jpg"
+import cortinaPainel3 from "@/assets/produtos/painal3.jpg"
+import cortinaPlissada1 from "@/assets/produtos/plissada1.jpg"
+import cortinaPlissada2 from "@/assets/produtos/plissada2.jpg"
+import cortinaElegance1 from "@/assets/produtos/elegance1.jpg"
+import cortinaElegance2 from "@/assets/produtos/elegance2.jpg"
+import cortinaElegance3 from "@/assets/produtos/elegance3.jpg"
+import cortinaNuette1 from "@/assets/produtos/nuette1.jpeg"
+import cortinaNuette2 from "@/assets/produtos/nuette2.png"
+import cortinaNuette3 from "@/assets/produtos/nuette3.png"
 import persianasImg from "@/assets/persianas.jpg";
+import persianasVerticais1 from "@/assets/produtos/persianas/vertical1.jpg";
+import persianasVerticais2 from "@/assets/produtos/persianas/vertical2.jpg";
+import persianasVerticais3 from "@/assets/produtos/persianas/vertical3.jpg";
+import persianasHorizontais1 from "@/assets/produtos/persianas/horizontal1.jpg";
+import persianasHorizontais2 from "@/assets/produtos/persianas/horizontal2.jpg";
+import persianasHorizontais3 from "@/assets/produtos/persianas/horizontal3.jpg";
 import toldosImg from "@/assets/toldos.jpg";
 import aromasImg from "@/assets/aromas.jpg";
 import placasImg from "@/assets/placas.jpg";
@@ -138,12 +158,12 @@ export const productsContent = {
       subProducts: [
         // Para adicionar fotos: importe a imagem no topo do arquivo e adicione aqui
         { name: "Rolo", description: "Cortinas de rolo com design moderno e funcional.", images: [cortinaRolo1, cortinaRolo2, cortinaRolo3, cortinaRolo4] },
-        { name: "Romana", description: "Elegância clássica com dobras suaves e sofisticadas.", images: [placeholder, placeholder] },
-        { name: "Painel", description: "Ideal para ambientes amplos com estilo contemporâneo.", images: [placeholder, placeholder] },
-        { name: "Elegance", description: "Sofisticação e leveza para ambientes refinados.", images: [placeholder, placeholder] },
-        { name: "Nuette", description: "Controle de luz com isolamento térmico e acústico.", images: [placeholder, placeholder] },
-        { name: "Plissada", description: "Versatilidade e charme em dobras delicadas.", images: [placeholder, placeholder] },
-        { name: "Celular", description: "Excelente isolamento térmico e acústico com design diferenciado.", images: [cortinaCelular, placeholder] },
+        { name: "Romana", description: "Elegância clássica com dobras suaves e sofisticadas.", images: [cortinaRomana1, cortinaRomana2, cortinaRomana3] },
+        { name: "Painel", description: "Ideal para ambientes amplos com estilo contemporâneo.", images: [cortinaPainel1, cortinaPainel2, cortinaPainel3] },
+        { name: "Elegance", description: "Sofisticação e leveza para ambientes refinados.", images: [cortinaElegance1,cortinaElegance2, cortinaElegance3] },
+        { name: "Nuette", description: "Controle de luz com isolamento térmico e acústico.", images: [cortinaNuette1, cortinaNuette2, cortinaNuette3] },
+        { name: "Plissada", description: "Versatilidade e charme em dobras delicadas.", images: [cortinaPlissada1, cortinaPlissada2] },
+        { name: "Celular", description: "Excelente isolamento térmico e acústico com design diferenciado.", images: [cortinaCelular] },
       ],
     },
     {
@@ -160,8 +180,8 @@ export const productsContent = {
       description: "Vertical ou horizontal. Controle preciso de luz e privacidade.",
       image: persianasImg,
       subProducts: [
-        { name: "Verticais", description: "Persianas verticais para grandes janelas e portas.", images: [placeholder, placeholder] },
-        { name: "Horizontais", description: "Controle preciso de luz com lâminas horizontais.", images: [placeholder, placeholder] },
+        { name: "Verticais", description: "Persianas verticais para grandes janelas e portas.", images: [persianasVerticais1, persianasVerticais2, persianasVerticais3] },
+        { name: "Horizontais", description: "Controle preciso de luz com lâminas horizontais.", images: [persianasHorizontais1, persianasHorizontais2, persianasHorizontais3] },
       ],
     },
     {
