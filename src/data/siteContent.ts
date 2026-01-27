@@ -19,7 +19,7 @@ import cortinaRolo4 from "@/assets/produtos/rolo4.jpg";
 import cortinaRomana1 from "@/assets/produtos/romana1.jpg";
 import cortinaRomana2 from "@/assets/produtos/romana2.jpg";
 import cortinaRomana3 from "@/assets/produtos/romana3.jpg";
-import cortinaPainel1 from "@/assets/produtos/painel1.jpg";
+import cortinaPainel1 from "@/assets/produtos/painel1.png";
 import cortinaPainel2 from "@/assets/produtos/painel2.jpg";
 import cortinaPainel3 from "@/assets/produtos/painel3.jpg";
 import cortinaPlissada1 from "@/assets/produtos/plissada1.jpg";
