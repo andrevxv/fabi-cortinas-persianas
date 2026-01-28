@@ -254,7 +254,7 @@ export const projectsContent = {
   badge: "Portfólio",
   title: "Projetos",
   titleHighlight: "Finalizados",
-  subtitle: "Acabamento impecável e materiais de alta qualidade em cada projeto.",
+  subtitle: "A excelência começa na confecção, com padronização técnica e acabamento uniforme em cada detalhe.",
   items: [
     {
       image: projeto1,
