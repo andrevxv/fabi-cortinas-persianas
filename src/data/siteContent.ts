@@ -179,7 +179,7 @@ export const productsContent = {
       image: toldo2,
       subProducts: [
         { name: "M1 Premium (Articulado)", description: "Caracterizado por seu design de vanguarda, com estética cuidadosamente elaborada, permite criar ambientes únicos, cheios de personalidade.", images: [ toldo1] },
-        { name: "Sax 955/950 (Toldo Vertical)", description: "Proteção solar vertical ideal para varandas e áreas externas.", images: [toldo2, toldo3] },
+        { name: "Sistema prático e simples de usar, é a solução perfeita para a instalação em qualquer tipo de varanda ou parapeito. Oferece a possibilidade de conseguir um efeito cortina, caso ﬁxado na posição vertical.", images: [toldo2, toldo3] },
       ],
     },
     {
@@ -215,8 +215,8 @@ export const motorizationContent = {
   titleHighlight: "Comodidade ao Seu Alcance",
   description: "O futuro do conforto chegou. Controle suas cortinas e persianas por voz ou smartphone, integrando perfeitamente à automação residencial do seu lar.",
   // Pode ser imagem ou vídeo (para vídeo, use URL do YouTube ou arquivo .mp4)
-  media: motorizedImg,
-  mediaType: "image" as "image" | "video", // Altere para "video" quando quiser usar vídeo
+  media: videoMotor,
+  mediaType: "video" as "video" | "image", // Altere para "video" quando quiser usar vídeo
   // Se mediaType = "video", use URL do vídeo aqui (YouTube embed ou arquivo .mp4)
   // Exemplo: media: "https://www.youtube.com/embed/VIDEO_ID" ou "/video.mp4"
   floatingBadge: {
