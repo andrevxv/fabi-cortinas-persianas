@@ -56,7 +56,7 @@ const Footer = () => {
             © {new Date().getFullYear()} {companyInfo.name}. Todos os direitos reservados.
           </p>
           <p className="text-xs font-medium text-primary-foreground/60">
-            CNPJ: 00.000.000/0000-00
+            CNPJ: 43.662.863/0001-37
           </p>
           <p className="text-xs text-primary-foreground/60">
             Desenvolvido por 🔥{" "}
