@@ -100,7 +100,7 @@ const Motorization = () => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.4 }}
               whileHover={{ scale: 1.05 }}
-              className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground px-6 py-4 rounded-lg shadow-medium"
+              className="absolute bottom-16 -right-4 bg-primary text-primary-foreground px-6 py-4 rounded-lg shadow-medium rotate-[-3deg] z-10"
             >
               <span className="text-2xl font-serif font-bold">{motorizationContent.floatingBadge.title}</span>
               <span className="block text-sm">{motorizationContent.floatingBadge.subtitle}</span>
