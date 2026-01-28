@@ -3,6 +3,8 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Smartphone, Home, Zap, Settings, LucideIcon } from "lucide-react";
 import { motorizationContent } from "@/data/siteContent";
+import alexaBadge from "@/assets/badges/alexa.jpg";
+import googleHomeBadge from "@/assets/badges/google-home.jpg";
 
 const iconMap: Record<string, LucideIcon> = {
   Smartphone,
@@ -52,9 +54,11 @@ const Motorization = () => {
                 ) : (
                   <video
                     src={motorizationContent.media}
-                    controls
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
                     className="w-full h-auto"
-                    poster={motorizationContent.media}
                   >
                     Seu navegador não suporta vídeos.
                   </video>
@@ -70,6 +74,26 @@ const Motorization = () => {
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent" />
               )}
             </div>
+            
+            {/* Compatibility Badges */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex justify-center gap-4 mt-6"
+            >
+              <img 
+                src={alexaBadge} 
+                alt="Compatível com Alexa" 
+                className="h-10 rounded-md shadow-sm"
+              />
+              <img 
+                src={googleHomeBadge} 
+                alt="Funciona com Google Home" 
+                className="h-10 rounded-md shadow-sm"
+              />
+            </motion.div>
+            
             {/* Floating Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
