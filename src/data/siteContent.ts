@@ -48,6 +48,9 @@ import projeto4 from "@/assets/projetos/pd4.jpeg";
 import projeto5 from "@/assets/projetos/pd5.jpeg";
 import projeto6 from "@/assets/projetos/pd6.jpeg";
 import heroBg from "@/assets/hero-bg.jpg";
+import toldo1 from "@/assets/produtos/m1.jpeg";
+import toldo1 from "@/assets/produtos/toldo2.jpeg";
+import toldo1 from "@/assets/produtos/toldo3.jpeg";
 
 // ============================================
 // IMAGENS DOS SUBPRODUTOS
@@ -172,10 +175,10 @@ export const productsContent = {
     {
       title: "Toldos",
       description: "Proteção solar externa com design sofisticado.",
-      image: toldosImg,
+      image: toldo2,
       subProducts: [
-        { name: "M1 Premium (Articulado)", description: "Toldo articulado premium com alta resistência e design elegante.", images: [placeholder, placeholder] },
-        { name: "Sax 955/950 (Toldo Vertical)", description: "Proteção solar vertical ideal para varandas e áreas externas.", images: [placeholder, placeholder] },
+        { name: "M1 Premium (Articulado)", description: "Caracterizado por seu design de vanguarda, com estética cuidadosamente elaborada, permite criar ambientes únicos, cheios de personalidade.", images: [ toldo1] },
+        { name: "Sax 955/950 (Toldo Vertical)", description: "Proteção solar vertical ideal para varandas e áreas externas.", images: [toldo2, toldo3] },
       ],
     },
     {
