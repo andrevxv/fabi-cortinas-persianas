@@ -41,9 +41,12 @@ import toldosImg from "@/assets/toldos.jpg";
 import aromasImg from "@/assets/aromas.jpg";
 import placasImg from "@/assets/placas.jpg";
 import motorizedImg from "@/assets/motorized.jpg";
-import projeto1 from "@/assets/projeto1.jpg";
-import projeto2 from "@/assets/projeto2.jpg";
-import projeto3 from "@/assets/projeto3.jpg";
+import projeto1 from "@/assets/projetos/pd1.jpeg";
+import projeto2 from "@/assets/projetos/pd2.jpeg";
+import projeto3 from "@/assets/projetos/pd3.jpeg";
+import projeto4 from "@/assets/projetos/pd4.jpeg";
+import projeto5 from "@/assets/projetos/pd5.jpeg";
+import projeto6 from "@/assets/projetos/pd6.jpeg";
 import heroBg from "@/assets/hero-bg.jpg";
 
 // ============================================
@@ -253,19 +256,19 @@ export const projectsContent = {
       image: projeto1,
       title: "Sala de Estar Clássica",
       location: "Nova Parnamirim, RN",
-      gallery: ["https://drive.google.com/file/d/127fyAD2BPtNCWDX0F3pvy-C9_ldXn1CC/preview", "/placeholder.svg", "/placeholder.svg"],
-    },
-    {
-      image: projeto2,
-      title: "Sala de Jantar Contemporânea",
-      location: "Natal, RN",
-      gallery: ["/placeholder.svg", "/placeholder.svg"],
+      gallery: [projeto2, "/placeholder.svg", "/placeholder.svg"],
     },
     {
       image: projeto3,
+      title: "Sala de Jantar Contemporânea",
+      location: "Natal, RN",
+      gallery: [projeto4, "/placeholder.svg"],
+    },
+    {
+      image: projeto5,
       title: "Suíte Master Elegante",
       location: "Ponta Negra, RN",
-      gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+      gallery: [projeto6, "/placeholder.svg"],
     },
   ] as ProjectItem[],
 };
