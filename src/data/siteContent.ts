@@ -49,8 +49,9 @@ import projeto5 from "@/assets/projetos/pd5.jpeg";
 import projeto6 from "@/assets/projetos/pd6.jpeg";
 import heroBg from "@/assets/hero-bg.jpg";
 import toldo1 from "@/assets/produtos/m1.jpeg";
-import toldo1 from "@/assets/produtos/toldo2.jpeg";
-import toldo1 from "@/assets/produtos/toldo3.jpeg";
+import toldo2 from "@/assets/produtos/toldo2.jpeg";
+import toldo3 from "@/assets/produtos/toldo3.jpeg";
+import videoMotor from "@/assets/motorizacao.mp4";
 
 // ============================================
 // IMAGENS DOS SUBPRODUTOS
