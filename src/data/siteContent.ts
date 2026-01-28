@@ -70,14 +70,14 @@ const placeholder = "/placeholder.svg";
 export const companyInfo = {
   name: "Fabi Cortinas & Persianas",
   shortName: "Fabi",
-  tagline: "Especialista em conforto térmico, proteção solar e controle de luz",
+  tagline: "Empresa especialista em conforto térmico, proteção solar e controle de luz",
   phone: "(84) 4141-7576",
   phoneClean: "5584941417576", // Para link do WhatsApp
   email: "adm.fabi.aromas@gmail.com",
   address: "Nova Parnamirim, RN",
   instagram: "@fabicortinasepersianas",
   instagramUrl: "https://instagram.com/fabicortinasepersianas",
-  facebookUrl: "https://facebook.com",
+  facebookUrl: "https://www.facebook.com/Fabi.Aromas.Decor",
 };
 
 // ============================================
